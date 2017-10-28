@@ -6,12 +6,13 @@ import javax.jws.WebService;
 
 import com.trainings.ws.soap.dto.PaymentProcessorRequest;
 import com.trainings.ws.soap.dto.PaymentProcessorResponse;
+import com.trainings.ws.soap.exceptions.ServiceException;
 
 @WebService(name="PaymentProcessor")
 public interface PaymentProcessor {
 
 	public@WebResult(name="response")
 	PaymentProcessorResponse processPayment(
-			@WebParam(name="paymentProcessorRequest") PaymentProcessorRequest paymentProcessorRequest);
+			@WebParam(name="paymentProcessorRequest") PaymentProcessorRequest paymentProcessorRequest) throws ServiceException;
 
 }
